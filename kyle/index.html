@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mycka's birthday</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e7709d;
+            text-align: center;
+            padding: 40px;
+        }
+        .container-flex {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .greeting-message {
+            font-size: 1.3em;
+            color: #ed73e3;
+            margin-bottom: 20px;
+            background: #fff8f0;
+            border-radius: 16px;
+            padding: 32px 28px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.07);
+            text-align: left;
+            max-width: 400px;
+            min-width: 300px;
+            display: none;
+        }
+        .images-column {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            align-items: center;
+        }
+        .birthday-image {
+            width: 300px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            display: none;
+        }
+        .signin-form {
+            margin: 40px auto;
+            display: inline-block;
+            background: #fff;
+            padding: 24px 32px;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .signin-form input {
+            margin: 8px 0;
+            padding: 8px;
+            width: 200px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        .signin-form button {
+            margin-top: 12px;
+            padding: 8px 24px;
+            background: #ff69b4;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .error-message {
+            color: rgb(245, 113, 232);
+            margin-top: 10px;
+            display: none;
+        }
+        @media (max-width: 900px) {
+            .container-flex {
+                flex-direction: column;
+                align-items: center;
+            }
+            .greeting-message {
+                max-width: 95vw;
+                min-width: unset;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Intro section before sign in -->
+    <div id="introSection" style="max-width:500px;margin:0 auto 32px auto;padding:24px 18px;background:#fff0fa;border-radius:18px;box-shadow:0 2px 12px rgba(236,106,186,0.08);color:#c2185b;">
+        <h1>Welcome to Mycka's Birthday Surprise!</h1>
+        <p>
+            Please sign in to see your special birthday greeting, beautiful images, and a fun interactive gallery. 
+            If you don't have an account yet, just enter your username and password to register automatically.
+        </p>
+        <p>
+            Enjoy your day and have fun exploring your birthday page!
+        </p>
+        <button id="showSignInBtn" style="margin-top:18px;padding:12px 32px;font-size:1.1em;background:#f684bd;color:#fff;border:none;border-radius:8px;cursor:pointer;">
+            Click here to continue
+        </button>
+    </div>
+    <form class="signin-form" id="signinForm" style="display:none;">
+        <h2>Sign In</h2>
+        <input type="text" id="username" placeholder="username" required><br>
+        <input type="password" id="password" placeholder="password" required><br>
+        <button type="submit">Sign In</button>
+        <div class="error-message" id="errorMessage">Invalid username or password.</div>
+        <p style="margin-top:16px;">Don't have an account? <a href="#" id="showRegister">Register</a></p>
+    </form>
+    <form class="signin-form" id="registerForm" style="display:none;">
+        <h2>Register</h2>
+        <input type="text" id="regUsername" placeholder="username" required><br>
+        <input type="password" id="regPassword" placeholder="password" required><br>
+        <button type="submit">Register</button>
+        <p style="margin-top:16px;">Already have an account? <a href="#" id="showSignIn">Sign In</a></p>
+    </form>
+    <div class="container-flex" id="greetingContainer" style="display:none;">
+        <div class="images-column">
+            <img class="birthday-image" id="birthdayImage" src="Unnamed 1.jpg" alt="">
+            <img class="birthday-image" id="birthdayImage2" src="Unnamed 7.jpg" alt="" >
+            <img class="birthday-image" id="birthdayImage3" src="Unnamed 3.jpg" alt="Birthday Candles">
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center;">
+            <div class="greeting-message" id="greetingMessage">
+                Happy happy Birthday to the most beautiful, loving, gorgeous and caring girl,On this special day, I want to remind you how much you mean to me.
+                You light up my life with your caring heart, and your unwavering support. You make me a better person in every way, and I'm grateful for every moment we spend together. I wish you a day filled with love,joy, and happiness. May all your wishes come true, and may this year be even more amazing than the last,i always pray for u here and of course. i always support whatever choice u make, as long as it's good for you.
+                 
+                
+                <br><br>
+                Wherever and whenever you are, stay kind,humble, and happy. Please,never be afraid to step forward and keep going on to through 
+                the day. There will be many people who love, take care of and support you, so keep being the cheerful and positive girl.
+                You have done your best. You ailed it to through today so upo Congratulations! All prayers and hopes are bless with you.
+                once again Happy happy birthday to you.enjoy your day.
+                
+                -kyle cantu
+            </div>
+            <!-- Expandable images section (now in the right column) -->
+            <div id="expandableImagesSection" style="display:none; margin-top:40px; text-align:center;">
+                <h3>Click an image to expand</h3>
+                <div style="display:flex; justify-content:center; gap:24px; background:#ffe4f3; padding:24px 0; border-radius:18px;">
+                    <!-- Light pink cover image as the first expandable image -->
+                    <img class="expandable-thumb" src="Unnamed 4.jpg" alt="Cover" style="width:100px;cursor:pointer;border-radius:12px;box-shadow:0 2px 8px #f8bbd0;">
+                    <img class="expandable-thumb" src="Unnamed 6.jpg" alt="Cake" style="width:100px;cursor:pointer;border-radius:12px;">
+                    <img class="expandable-thumb" src="Unnamed 2.jpg" alt="Balloons" style="width:100px;cursor:pointer;border-radius:12px;">
+                    <img class="expandable-thumb" src="Unnamed 5.jpg" alt="Candles" style="width:100px;cursor:pointer;border-radius:12px;">
+                </div>
+                <!-- Modal for expanded image -->
+                <div id="imageModal" style="display:none;position:fixed;z-index:9999;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.7);justify-content:center;align-items:center;">
+                    <img id="modalImg" src="" alt="Expanded" style="max-width:90vw;max-height:90vh;border-radius:20px;box-shadow:0 4px 32px rgba(0,0,0,0.4);">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Show sign in only after clicking the intro button
+        document.getElementById('showSignInBtn').onclick = function() {
+            document.getElementById('introSection').style.display = 'none';
+            document.getElementById('signinForm').style.display = 'inline-block';
+        };
+
+        // Store registered users in localStorage
+        function getUsers() {
+            try {
+                return JSON.parse(localStorage.getItem('users')) || {};
+            } catch (e) {
+                return {};
+            }
+        }
+        function setUsers(users) {
+            localStorage.setItem('users', JSON.stringify(users));
+        }
+
+        document.getElementById('signinForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var users = getUsers();
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var errorMessage = document.getElementById('errorMessage');
+            if (users[username] && users[username] === password) {
+                // Successful sign in
+                document.getElementById('signinForm').style.display = 'none';
+                document.getElementById('registerForm').style.display = 'none';
+                document.getElementById('greetingContainer').style.display = 'flex';
+                document.getElementById('greetingMessage').style.display = 'block';
+                document.getElementById('birthdayImage').style.display = 'block';
+                document.getElementById('birthdayImage2').style.display = 'block';
+                document.getElementById('birthdayImage3').style.display = 'block';
+                errorMessage.style.display = 'none';
+                document.getElementById('expandableImagesSection').style.display = 'block';
+                setTimeout(function() {
+                    if(document.getElementById('greetingMessageBottom')) {
+                        document.getElementById('greetingMessageBottom').scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 500);
+            } else if (!users[username]) {
+                // Auto-register and sign in
+                users[username] = password;
+                setUsers(users);
+                document.getElementById('signinForm').style.display = 'none';
+                document.getElementById('registerForm').style.display = 'none';
+                document.getElementById('greetingContainer').style.display = 'flex';
+                document.getElementById('greetingMessage').style.display = 'block';
+                document.getElementById('birthdayImage').style.display = 'block';
+                document.getElementById('birthdayImage2').style.display = 'block';
+                document.getElementById('birthdayImage3').style.display = 'block';
+                errorMessage.style.display = 'none';
+                document.getElementById('expandableImagesSection').style.display = 'block';
+                setTimeout(function() {
+                    if(document.getElementById('greetingMessageBottom')) {
+                        document.getElementById('greetingMessageBottom').scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 500);
+            } else {
+                // Wrong password
+                errorMessage.style.display = 'block';
+            }
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var users = getUsers();
+            var username = document.getElementById('regUsername').value.trim();
+            var password = document.getElementById('regPassword').value;
+            if (users[username]) {
+                alert('Username already exists!');
+            } else {
+                users[username] = password;
+                setUsers(users);
+                alert('Registration successful! Please sign in.');
+                document.getElementById('registerForm').style.display = 'none';
+                document.getElementById('signinForm').style.display = 'inline-block';
+            }
+        });
+
+        document.getElementById('showRegister').onclick = function(e) {
+            e.preventDefault();
+            document.getElementById('signinForm').style.display = 'none';
+            document.getElementById('registerForm').style.display = 'inline-block';
+        };
+        document.getElementById('showSignIn').onclick = function(e) {
+            e.preventDefault();
+            document.getElementById('registerForm').style.display = 'none';
+            document.getElementById('signinForm').style.display = 'inline-block';
+        };
+
+        // Expandable images logic
+        document.querySelectorAll('.expandable-thumb').forEach(function(img) {
+            img.addEventListener('click', function() {
+                document.getElementById('modalImg').src = img.src.replace('w=300', 'w=900');
+                document.getElementById('imageModal').style.display = 'flex';
+            });
+        });
+        document.getElementById('imageModal').addEventListener('click', function() {
+            document.getElementById('imageModal').style.display = 'none';
+            document.getElementById('modalImg').src = '';
+        });
+    </script>
+</body>
+</html>
